@@ -14,9 +14,12 @@
 
 #define MASS_1 2.0f
 #define MASS_2 2.0f
+
 #define LENGTH 1.0f
 #define LENGTH_SCALAR 200.0f
-#define MASS_SIZE 5.0f
+
+#define MASS_SIZE 6.0f
+
 #define FPS 60.0f
 #define G 9.802f
 

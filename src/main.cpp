@@ -15,6 +15,17 @@ int main() {
     Pendulum pendulum;
     pendulum.init();
 
+    sf::Font timerFont;
+    if (!timerFont.loadFromFile("font/ARIALBD.TTF"))
+        printf("Unable to load font\n");
+
+    sf::Text timerText;
+    timerText.setFont(timerFont);
+    timerText.setCharacterSize(12);
+    timerText.setPosition(50, WIN_SIZE_Y - CELL_SIZE);
+
+    char timeBuffer[0xFF];
+
     sf::Clock timer;
     while (window.isOpen()) {
 
@@ -27,9 +38,14 @@ int main() {
         }
         window.clear(sf::Color(0, 12, 26));
 
+        int time = timer.getElapsedTime().asSeconds();
+        sprintf(timeBuffer, "Elapsed Time: %d seconds", time);
+        timerText.setString(timeBuffer);
+
         pendulum.update();
         pendulum.draw(window);
 
+        window.draw(timerText);
         window.display();
     }
     return EXIT_SUCCESS;
