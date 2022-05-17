@@ -79,8 +79,17 @@ void Pendulum::draw(sf::RenderWindow &window) {
                        sf::Color(105, 105, 105)));
     
     window.draw(line2, 2, sf::Lines);
+
+#ifdef TRACE_ENABLE
     window.draw(&vertices[0], vertices.size(), sf::LineStrip);
+#endif
     window.draw(root);
     window.draw(mass1);
     window.draw(mass2);
+}
+
+void Pendulum::reset() {
+
+    vertices.clear();
+    init();
 }

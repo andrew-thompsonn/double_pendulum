@@ -10,7 +10,7 @@
 #define PI 3.14159
 
 #define INITIAL_THETA_1 PI/2.0f
-#define INITIAL_THETA_2 PI/4.0f
+#define INITIAL_THETA_2 3*PI/4.0f
 
 #define MASS_1 2.0f
 #define MASS_2 2.0f
@@ -19,6 +19,8 @@
 #define LENGTH_SCALAR 200.0f
 
 #define MASS_SIZE 6.0f
+
+#define TRACE_ENABLE
 
 #define FPS 60.0f
 #define G 9.802f
@@ -54,6 +56,8 @@ public:
     void update();
 
     void draw(sf::RenderWindow &window);
+
+    void reset();
 };
 
 #endif /* _PENDULUM_H_ */

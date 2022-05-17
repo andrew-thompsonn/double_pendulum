@@ -22,6 +22,7 @@ int main() {
     sf::Text timerText;
     timerText.setFont(timerFont);
     timerText.setCharacterSize(12);
+    timerText.setFillColor(sf::Color(105, 105, 105));
     timerText.setPosition(50, WIN_SIZE_Y - CELL_SIZE);
 
     char timeBuffer[0xFF];
@@ -34,6 +35,10 @@ int main() {
             if (event.type == sf::Event::Closed) {
                 window.close();
                 continue;
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
+                timer.restart();
+                pendulum.reset();
             }
         }
         window.clear(sf::Color(0, 12, 26));
