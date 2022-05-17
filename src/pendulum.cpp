@@ -16,8 +16,6 @@ void Pendulum::init() {
     
     originX = WIN_SIZE_X/2.0f;
     originY = WIN_SIZE_Y/4.0f;
-
-    frameCount = 0;
 }
 
 void Pendulum::update() {
@@ -50,21 +48,21 @@ void Pendulum::update() {
 void Pendulum::draw(sf::RenderWindow &window) {
 
     sf::CircleShape root(MASS_SIZE);
-    root.setFillColor(sf::Color::Red);
+    root.setFillColor(sf::Color(0, 102, 51));
     root.setPosition(originX, originY);
 
     float positionX1 = length1*sinf(theta1)*LENGTH_SCALAR;
     float positionY1 = length1*cosf(theta1)*LENGTH_SCALAR;
 
     sf::CircleShape mass1(MASS_SIZE);
-    mass1.setFillColor(sf::Color::Blue);
+    mass1.setFillColor(sf::Color(204, 102, 0));
     mass1.setPosition(originX + positionX1, originY + positionY1);
 
     float positionX2 = positionX1 + length2*sinf(theta2)*LENGTH_SCALAR;
     float positionY2 = positionY1 + length2*cosf(theta2)*LENGTH_SCALAR;
 
     sf::CircleShape mass2(MASS_SIZE);
-    mass2.setFillColor(sf::Color::Blue);
+    mass2.setFillColor(sf::Color(204, 102, 0));
     mass2.setPosition(originX + positionX2, originY + positionY2);
 
     sf::Vertex line1[] = {
@@ -77,8 +75,11 @@ void Pendulum::draw(sf::RenderWindow &window) {
         sf::Vertex(sf::Vector2f(originX + positionX1 + MASS_SIZE, originY + positionY1 + MASS_SIZE)),
         sf::Vertex(sf::Vector2f(originX + positionX2 + MASS_SIZE, originY + positionY2 + MASS_SIZE))
     };
-    window.draw(line2, 2, sf::Lines);
+    vertices.push_back(sf::Vertex(sf::Vector2f(originX + positionX2 + MASS_SIZE, originY + positionY2 + MASS_SIZE),
+                       sf::Color(105, 105, 105)));
     
+    window.draw(line2, 2, sf::Lines);
+    window.draw(&vertices[0], vertices.size(), sf::LineStrip);
     window.draw(root);
     window.draw(mass1);
     window.draw(mass2);

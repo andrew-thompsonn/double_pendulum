@@ -25,7 +25,7 @@ int main() {
                 continue;
             }
         }
-        window.clear(sf::Color::Black);
+        window.clear(sf::Color(0, 12, 26));
 
         pendulum.update();
         pendulum.draw(window);

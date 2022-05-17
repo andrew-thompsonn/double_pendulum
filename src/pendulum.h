@@ -3,12 +3,14 @@
 
 #include <SFML/Graphics.hpp>
 #include <math.h>
+#include <vector>
+
 #include "constants.h"
 
 #define PI 3.14159
 
 #define INITIAL_THETA_1 PI/2.0f
-#define INITIAL_THETA_2 PI/6.0f
+#define INITIAL_THETA_2 PI/4.0f
 
 #define MASS_1 2.0f
 #define MASS_2 2.0f
@@ -40,7 +42,7 @@ class Pendulum {
 
     float originY;
 
-    unsigned short frameCount;
+    std::vector<sf::Vertex> vertices;
 
 public:
 
