@@ -5,6 +5,6 @@
 #define WIN_SIZE_Y 800
 #define CELL_SIZE 20
 
-#define WIN_TITLE "Double Pendulum"
+#define WIN_TITLE "Double Pendulum Simulation"
 
 #endif /* _CONSTANTS_H_ */
